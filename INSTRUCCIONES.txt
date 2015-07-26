@@ -1,0 +1,19 @@
+PARA EJECUTAR:
+- Crear un folder que se llame 'data' dentro
+- Executar mongod.exe redireccionando al folder: 
+c:\Program Files\MongoDB\Server\3.0\bin>mongod.exe --dbpath D:\AngularJSv3\data
+- Iniciar Servicio: node server.js
+
+PARA PROBAR LA PAGINA:
+- Loguearse como 'Login as Demo Admin' para ver todas las opciones (esto es para nuestras pruebas solamente por el momento)
+- Logout
+- Intentar acceder a: 'http://localhost:8080/home' o 'http://localhost:8080/planillaSalPendA' y notar que el acceso es denegado a menos que el usuario este logueado
+
+PARA PROBAR EL LOGIN CON DISTINTOS ROLES:
+- Loguearse como 'Login as Demo Admin' para ver todas las opciones
+- Crear nuevos usuario desde el menu: 'Admin Angoose'--> 'Manager Users'
+- Click 'New angoose-user' y crear 3 usuarios con los roles 'admin', 'almacenes', 'adminCuentas'. El rol 'user' no es parte de nuestro sistema y no funciona.
+- Loguearse con los usuarios creados y notar que los menus son mostrados de acuerdo al rol.
+
+PD. Solo esta redireccionando a la pagina de home, y a la planilla del administrador por el momento ya que era solo una prueba. Si estan de acuerdo en usar angoose, recien estaria uniendo toda la navegacion y empezariamos a utlizar esto para integrar los demas features.
+
