@@ -13,26 +13,26 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
 			<ul class="nav navbar-nav" >
                 <li ng-if="user.roles == 'admin'"><a href="/planillaSalPendA">Planillas de Salida</a></li>
-                <li ng-if="user.roles == 'admin'"><a href="#/planillaLiqPend">Planillas de Liquidacion</a></li>
+                <li ng-if="user.roles == 'admin'"><a href="/planillaLiqPend">Planillas de Liquidacion</a></li>
                  <li class="dropdown"  ng-if="user.roles == 'admin'">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Reporte Planilla Liquidacion<i class="icon-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#/reporteLiqFecha">Reporte Planilla Salida</a></li>
-                        <li><a href="#/reporteSalProdF">Reporte Planilla Salida Productos</a></li>
+                        <li><a href="/reporteLiqFecha">Reporte Planilla Salida</a></li>
+                        <li><a href="/reporteSalProdF">Reporte Planilla Salida Productos</a></li>
                     </ul>
                 </li>
                  <li class="dropdown"  ng-if="user.roles == 'admin'">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Registros<i class="icon-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#/listaEmpAd">Empleados</a></li>
-                        <li><a href="#/listaCarro">Carros</a></li>
-                        <li><a href="#/reporteProductoExistAl">Productos</a></li>
+                        <li><a href="/listaEmpAd">Empleados</a></li>
+                        <li><a href="/listaCarro">Carros</a></li>
+                        <li><a href="/reporteProductoExistAl">Productos</a></li>
                     </ul>
                  </li>
-                    <li ng-if="user.roles == 'almacenes'"><a href="#/planillaDiaAl">Planillas de Salida</a></li>
-                    <li ng-if="user.roles == 'almacenes'"><a href="#/reporteProductoGral">Reportes Productos</a></li>
-                    <li ng-if="user.roles == 'adminCuentas'"><a href="#/listaUser">Administrar Usuarios</a></li>
-                    <li ng-if="user.roles == 'adminCuentas'"><a href="#/listaEmpleado">Administrar Empleados</a></li>
+                    <li ng-if="user.roles == 'almacenes'"><a href="/planillaDiaAl">Planillas de Salida</a></li>
+                    <li ng-if="user.roles == 'almacenes'"><a href="/reporteProductoGral">Reportes Productos</a></li>
+                    <li ng-if="user.roles == 'adminCuentas'"><a href="/listaUser">Administrar Usuarios</a></li>
+                    <li ng-if="user.roles == 'adminCuentas'"><a href="/listaEmpleado">Administrar Empleados</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">

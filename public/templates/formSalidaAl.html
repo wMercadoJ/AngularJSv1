@@ -1,0 +1,116 @@
+<div ng-controller="planillaAlCtrl">
+    <script type="text/ng-template" id="listaProductosModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Seleccionar Productos para Pedido</h3>
+        </div>
+        <div class="modal-body">
+            <div class="span5 fill" style="height: 230px;">
+                <div class="col-md-8 col-md-offset-4" ng-dropdown-multiselect="" options='datosProductos'
+                     selected-model="modeloProductos" extra-settings="settingsProductos"
+                     translation-texts="productoCustomTexts"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <!-- Panel izquierdo -->
+    <aside class="col-md-2 fidden-xs hidden-sm post clearfix">
+        <h4>Opciones</h4>
+
+        <div class="list-group">
+            <a href="#/planillaDiaAl" class="list-group-item">Planillas del Dia Recientes</a>
+            <a href="#/nuevaPlanillaAl" class="list-group-item active">Nueva Planilla</a>
+        </div>
+    </aside>
+    <!-- Contenedor principal derecho -->
+    <section class="posts col-md-10">
+        <article class="post clearfix">
+            <h3 class="post-title">
+                {{message}}
+            </h3>
+        </article>
+        <h4>
+            {{datoslabel}}
+        </h4>
+
+        <form class="form-horizontal" name="formPlanilla">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Pedido de carro</label>
+
+                <div class="col-sm-2">
+                    <pre>{{fecha | date: "dd/MM/yyyy"}}</pre>
+
+                </div>
+                <button type="submit" class="btn btn-primary" ng-click="addProducto()">
+                    Añadir Producto
+                </button>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre de Chofer</label>
+
+                <div class="col-sm-2">
+                    <pre>{{chofer.chofer}}</pre>
+                </div>
+
+                <button type="submit" class="btn btn-danger" ng-click="cambiarPedido()">
+                    Cambiar Pedido
+                </button>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Placa Carro</label>
+
+                <div class="col-sm-2">
+                    <pre>{{chofer.placa}}</pre>
+                </div>
+            </div>
+        </form>
+
+        <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+            <div class="btn-form" ng-show="tableform.$visible">
+                <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+                <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()"
+                        class="btn btn-default">cancel
+                </button>
+            </div>
+            <p>
+                <!-- table -->
+            <table class="table table-bordered table-hover table-condensed">
+                <tr class="text-center info" style="font-weight: bold">
+                    <td style="width:10%">Cod</td>
+                    <td style="width:15%">Producto</td>
+                    <td style="width:10%">Precio</td>
+                    <td style="width:10%">Unidad Conv.</td>
+                    <td style="width:10%">Paquetes</td>
+                    <td style="width:10%">Cajas</td>
+                    <td style="width:10%">Total</td>
+                    <td style="width:10%">Action</td>
+                </tr>
+                <tr ng-repeat="producto in listaProductos">
+                    <td><input class="form-control" ng-model="producto.codigoProd" disabled></td>
+                    <td><input class="form-control" ng-model="producto.nombreProd" disabled></td>
+                    <td><input class="form-control" ng-model="producto.precio" disabled></td>
+                    <td><input class="form-control" ng-model="producto.unidad" disabled></td>
+                    <td><input type="number" class="form-control" ng-model="producto.paquetes" min="0"></td>
+                    <td><input type="number" class="form-control" ng-model="producto.cajas" min="0" ></td>
+                    <td align="right">{{producto.cajas * producto.unidad + producto.paquetes}}</td>
+                    <td>
+                        <button type="button" ng-click="removeItem($index)" class="btn btn-danger pull-right">Remover Producto
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="btn-form" ng-show="tableform.$visible">
+                <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+                <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()"
+                        class="btn btn-default">cancel
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+</div>

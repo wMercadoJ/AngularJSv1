@@ -1,6 +1,16 @@
 'use strict';
 
-var mainApp = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui', 'ui.bootstrap', "ui.bootstrap.tpls", 'angular-redactor'])
+var mainApp = angular.module('demo',
+    ['ngRoute',
+    'angoose.client',
+    'angoose.ui',
+    'ui.bootstrap',
+    "ui.bootstrap.tpls",
+    'angular-redactor',
+    'ngSanitize',
+    'xeditable',
+    'angularjs-dropdown-multiselect']
+)
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $locationProvider.html5Mode({
             enabled: true,
@@ -10,7 +20,81 @@ var mainApp = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui',
         $routeProvider.when('/home', {templateUrl: 'templates/home.tpl'});
         $routeProvider.when("/todomvc", {templateUrl: '/templates/todo.tpl'});
         $routeProvider.when('/planillaSalPendA', {templateUrl: '/templates/planillaSalPendA.tpl'});
+        $routeProvider.when('/planillaDiaAl', {
+            templateUrl: '/templates/planillaDiaAl.tpl',
+            controller: 'planillaDiaAlCAlCtrl'
+        });
+        $routeProvider.when('/nuevaPlanillaAl', {
+            templateUrl: '/templates/nuevaPlanillaAl.html',
+            controller: 'nuevaPlanillaAlCtrl',
+        });
+        $routeProvider.when('/reporteProductoGral', {
+            templateUrl: '/templates/reporteProdGral.html',
+            controller: 'reporteProductoGralCtrl',
+        });
+        $routeProvider.when('/reporteProductoExistAl', {
+            templateUrl: '/templates/reporteProdAl.html',
+            controller: 'reporteProductoExistAlCtrl',
+        });
+        $routeProvider.when('/listaEmpleado', {
+            templateUrl: '/templates/listaEmp.html',
+            controller: 'listaEmpleadoCtrl',
+        });
+        $routeProvider.when('/nuevoEmpleado', {
+            templateUrl: '/templates/nuevoEmp.html',
+            controller: 'nuevoEmpleadoCtrl',
+        });
+        $routeProvider.when('/listaUser', {
+            templateUrl: '/templates/listaUser.html',
+            controller: 'listaUserCtrl',
+        });
+        $routeProvider.when('/nuevoUser', {
+            templateUrl: '/templates/nuevoUser.html',
+            controller: 'nuevoUserCtrl',
+        });
+        $routeProvider.when('/planillaSalA', {
+            templateUrl: 'pages/administrador/planillaSalA.html',
+            controller: 'planillaSalACtrl',
+        });
+        $routeProvider.when('/planillaLiqPend', {
+            templateUrl: '/templates/planillaLiqPend.html',
+            controller: 'planillaLiqPendCtrl',
+        });
+        $routeProvider.when('/planillaLiq', {
+            templateUrl: '/templates/planillaLiq.html',
+            controller: 'planillaLiqCtrl',
+        });
+        $routeProvider.when('/reporteLiqFecha', {
+            templateUrl: '/templates/reporteLiqF.html',
+            controller: 'reporteLiqFCtrl',
+        });
+        $routeProvider.when('/reporteLiqEmp', {
+            templateUrl: '/templates/reporteLiqEmp.html',
+            controller: 'reporteLiqEmpCtrl',
+        });
+        $routeProvider.when('/reporteSalProdF', {
+            templateUrl: '/templates/reporteSalProdF.html',
+            controller: 'reporteSalProdFCtrl',
+        });
+        $routeProvider.when('/reporteSalProdE', {
+            templateUrl: '/templates/reporteSalProdE.html',
+            controller: 'reporteSalProdECtrl',
+        });
+        $routeProvider.when('/listaEmpAd', {
+            templateUrl: '/templates/listaEmpAd.html',
+            controller: 'listaEmpAdCtrl',
+        });
+        $routeProvider.when('/listaCarro', {
+            templateUrl: '/templates/listaCarro.html',
+            controller: 'listaCarroCtrl',
+        });
+        $routeProvider.when('/formSalidaAl', {
+            templateUrl: '/templates/formSalidaAl.tpl',
+            controller: 'planillaAlCtrl',
+        });
         $routeProvider.when('/:selectedStatus?', {templateUrl: '/templates/todo.tpl'});
+
+
 
     }]);
 

@@ -49,8 +49,30 @@ app.get("/deform/*", application);
 app.get("/angoose/*", application);
 app.get("/login", application);
 app.get("/home", application);
-app.get("/planillaSalPendA", application);
 app.get("/logout", application);
+
+app.get("/planillaDiaAl", application);
+app.get("/nuevaPlanillaAl", application);
+app.get("/reporteProductoGral", application);
+app.get("/reporteProductoExistAl", application);
+app.get("/listaEmpleado", application);
+app.get("/nuevoEmpleado", application);
+app.get("/listaUser", application);
+app.get("/nuevoUser", application);
+app.get("/planillaSalPendA", application);
+app.get("/planillaSalA", application);
+app.get("/planillaLiq", application);
+app.get("/reporteLiqFecha", application);
+app.get("/reporteLiqEmp", application);
+app.get("/reporteSalProdF", application);
+app.get("/reporteSalProdE", application);
+app.get("/listaEmpAd", application);
+app.get("/listaCarro", application);
+app.get("/formSalidaAl", application);
+
+require('./public/controllers/routes.js')(app);
+
+
 
 http.createServer(app).listen(8080);
 
